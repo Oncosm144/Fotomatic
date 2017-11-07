@@ -8,11 +8,14 @@ html {
 .main-content {
   position: relative;
   top: 5.3125rem; /* To offset for fixed header. */
+  z-index: 20;
+}
+
+#sign-up-section {
   background: url(../images/banner-landingpage.jpg);
   background-repeat: no-repeat;
-  background-position: top;
-  background-size: contain;
-  z-index: 20;
+  background-position: center;
+  background-size: cover;
 }
 
 .center {
@@ -81,6 +84,10 @@ header .icon {
   padding-left: .75rem;
 }
 
+header .tablet {
+  display: none;
+}
+
 header .mobile {
   display: none;
 }
@@ -90,7 +97,7 @@ header .mobile {
 #sign-up-section {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: baseline;
   height: 43.5rem;
 }
 
@@ -99,8 +106,8 @@ header .mobile {
   border: solid 1px #979797;
   border-radius: 4px;
   background-color: #9dc20b;
-  margin-top: 170px;
-  margin-left: 100px;
+  margin-top: 10.625rem;
+  margin-left: 6.25rem;
 }
 
 #sign-up-cta .content {
@@ -143,14 +150,13 @@ header .mobile {
 #features-section {
   display: flex;
   justify-content: space-between;
-  padding: 4rem 5%;
+  padding: 4rem 5% 3rem 5%;
   background-color: #f3f3f3;
 }
 
 .feature {
   flex: 1;
-  padding-bottom: 2rem;
-  margin: 0px 1.25rem;
+  margin: 2rem 2rem 2.5rem 2rem;
   background-color: white;
 }
 
@@ -161,6 +167,7 @@ header .mobile {
 }
 
 .feature .content {
+  height: 6.2875rem;
   padding-bottom: 4rem;
 }
 
@@ -241,8 +248,9 @@ header .mobile {
   color: #4a4a4a;
 }
 
-#quotes-section quote-citation {
+#quotes-section .quote-citation {
   height: 1.875rem;
+  width: auto;
 }
 
 /* Footer */
@@ -263,16 +271,11 @@ footer .copyright {
   flex-grow: 1;
 }
 
-/* resizing universal */
+/* resizing header */
 @media only screen and (max-width: 760px) {
   .main-content {
     top: 4rem;
-    height: auto;
   }
-}
-
-/* resizing header */
-@media only screen and (max-width: 760px) {
   header {
     height: 65px;
   }
@@ -283,7 +286,7 @@ footer .copyright {
     margin-top: 1rem;
   }
 
-  header .tablet ul {
+  header .tablet {
     display: flex;
     align-content: center;
   }
@@ -300,27 +303,41 @@ footer .copyright {
   }
 }
 @media only screen and (max-width: 450px){
+  .main-content {
+    top: 3rem;
+  }
+  #sign-up-section {
+    background-position: right;
+  }
+  header {
+    height: 48px;
+  }
+
+  header .content {
+    padding: 0;
+  }
+
+  header nav ul {
+    float: left;
+    justify-content: space-between;
+    margin: 0;
+  }
+
   header .desktop {
     display: none;
   }
 
   header .tablet {
-    display: block;
-    width: 100%;
+    display: none;
   }
 
-  header .content {
-    padding: .5rem 0;
-  }
-
-  header .mobile ul {
+  header .mobile {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    width: 100%;
   }
 
-  header .mobile li {
+  header .mobile a {
+    margin: 0;
     padding: 0;
   }
 
@@ -367,10 +384,6 @@ footer .copyright {
 }
 
 @media only screen and (max-width: 450px) {
-  #sign-up-section {
-    height: 20rem;
-  }
-
   #sign-up-cta h1 {
     font-size: 2.25rem;
   }
@@ -428,12 +441,54 @@ footer .copyright {
   #features-section {
     flex-flow: row;
     justify-content: space-around;
-    padding: 0;
+    margin: 0;
   }
 
   .feature {
     margin: 0;
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #features-section {
+    display: block;
+  }
+
+  .feature.grey {
+    background-color: #D3D3D3;
+    height: 400px;
+  }
+
+  .feature.white {
+    height: 420px;
+  }
+
+  .feature .image-container {
+    width: 95%;
+  }
+
+  .feature img {
+    margin: 1rem 5%;
+    width: 100%;
+  }
+
+  .feature h2 {
+    font-size: 1.125rem;
+    font-family: "Roboto" sans-serif;
+    font-weight: normal;
+    line-height: 1.3;
+    padding-bottom: .75rem;
+    padding-top: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .feature h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0 2rem 2rem 2rem;
+    text-align: center;
   }
 }
 
@@ -470,6 +525,24 @@ footer .copyright {
   }
 }
 
+@media only screen and (max-width: 450px) {
+  #filters-section .content {
+    margin: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  #filters-section .content h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+  }
+
+
+  #filters-section .content h3 {
+    padding: 0 2rem;
+    margin: 0;
+  }
+}
+
 /* resizing quotes */
 @media only screen and (max-width: 760px) {
   #quotes-section .content {
@@ -483,9 +556,28 @@ footer .copyright {
     padding-left: 1rem;
   }
 
-  #quotes-section quote-citation {
-    height: 1rem;
+  #quotes-section .quote-citation {
+    height: 2.25rem;
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #quotes-section .content {
+    display: flex;
+    flex-flow: column;
+    padding: 2rem 0;
+  }
+
+  #quotes-section .quote {
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  #quotes-section .quote-citation {
+    height: 2.25rem;
+    padding: 1rem 0;
   }
 }
 
